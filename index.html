@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h1 class="title">Your Weather</h1>
+    <div class="search-container">
+      <input type="text" id="cityInput" placeholder="Search city...">
+      <button onclick="searchWeather()">Search</button>
+      <button onclick="startVoiceSearch()">🎧</button>
+    </div>
+    <div class="controls">
+      <button onclick="toggleTheme()">🌃</button>
+      <button onclick="toggleUnit()">°C/°F</button>
+    </div>
+    <div id="loader">Loading...</div>
+    <div class="weather-card" id="weatherCard">
+      <h2 id="location">Fetching...</h2>
+      <h3 id="description"></h3>
+      <div class="temp-container">
+        <h1 id="temperature"></h1>
+        <img id="icon" src="" alt="Weather Icon">
+      </div>
+      <p id="feelsLike"></p>
+      <p id="humidity"></p>
+      <p id="localTime"></p>
+    </div>
+    <div class="hourly-forecast" id="hourlyForecast"></div>
+    <footer>Made by Ankit Chaudhary | Powered by OpenWeather</footer>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
