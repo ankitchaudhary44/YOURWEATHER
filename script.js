@@ -1,8 +1,7 @@
-const API_KEY = "d8618a0309d94c55ba2170706250303"; // WeatherAPI.com key
+const API_KEY = "d8618a0309d94c55ba2170706250303"; 
 let currentUnit = "C";
 let currentCity = "";
 
-// On load: detect city via IP
 window.onload = () => {
   document.getElementById("loader").style.display = "block";
 
@@ -18,7 +17,6 @@ window.onload = () => {
     });
 };
 
-// Main fetch function
 function getWeather(city) {
   document.getElementById("loader").style.display = "block";
   fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=1`)
@@ -32,7 +30,6 @@ function getWeather(city) {
     });
 }
 
-// Update UI
 function updateUI(data) {
   const location = data.location;
   const current = data.current;
@@ -52,7 +49,6 @@ function updateUI(data) {
   renderHourly(data.forecast.forecastday[0].hour);
 }
 
-// Theme background
 function setTheme(condition, isDay) {
   const body = document.body;
 
@@ -69,7 +65,6 @@ function setTheme(condition, isDay) {
   }
 }
 
-// Search weather by input
 function searchWeather() {
   const city = document.getElementById("cityInput").value.trim();
   if (city) {
@@ -77,7 +72,7 @@ function searchWeather() {
   }
 }
 
-// Unit toggle °C/°F
+
 function toggleUnit() {
   if (!currentCity) return;
   fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${currentCity}`)
@@ -96,7 +91,6 @@ function toggleUnit() {
     });
 }
 
-// Voice Search 🎧
 function startVoiceSearch() {
   if (!('webkitSpeechRecognition' in window)) {
     alert("Voice recognition not supported");
@@ -114,7 +108,6 @@ function startVoiceSearch() {
   };
 }
 
-// Toggle Music 🎵
 function toggleMusic() {
   const music = document.getElementById("backgroundMusic");
   if (music.paused) {
@@ -124,7 +117,6 @@ function toggleMusic() {
   }
 }
 
-// Hourly Forecast
 function renderHourly(hourData) {
   const container = document.getElementById("hourlyForecast");
   container.innerHTML = "";
